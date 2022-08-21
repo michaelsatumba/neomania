@@ -30,10 +30,18 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className="flex flex-col items-center justify-center h-screen">
-				<p>{exercise}</p>
+				<h1 className="mb-4">Do this today:</h1>
+				<p
+					// className="animate-spin"
+					// className="animate-ping"
+					// className="animate-pulse"
+					className="animate-bounce"
+				>
+					{exercise}
+				</p>
 				<button
 					onClick={generate}
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
 				>
 					Click Me
 				</button>
