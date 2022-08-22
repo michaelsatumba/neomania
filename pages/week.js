@@ -20,6 +20,10 @@ function week() {
 		'Foam Roll',
 		'Walking with Backpack',
 		'Swim',
+		'Jump Rope',
+		'Yoga',
+		'Bike',
+		'Basketball',
 	];
 
 	const generate = () => {
