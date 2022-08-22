@@ -11,7 +11,9 @@ function week() {
 	const [exercise6, setExercise6] = useState('Exercise');
 	const arrayExercises = [
 		'Stretch',
-		'Lift',
+		'Strength',
+		'Power Clean',
+		'Bodybuild',
 		'Calisthenics',
 		'Walk',
 		'Jog',
@@ -24,6 +26,10 @@ function week() {
 		'Yoga',
 		'Bike',
 		'Basketball',
+		'Rollerskate',
+		'Hike',
+		'Bat',
+		'Dance',
 	];
 
 	const generate = () => {
