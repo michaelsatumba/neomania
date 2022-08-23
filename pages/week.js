@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-function week() {
+function Week() {
 	const [exercise, setExercise] = useState('Exercise');
 	const [exercise1, setExercise1] = useState('Exercise');
 	const [exercise2, setExercise2] = useState('Exercise');
@@ -100,4 +100,4 @@ function week() {
 	);
 }
 
-export default week;
+export default Week;
