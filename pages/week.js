@@ -56,6 +56,8 @@ function Week() {
 		setExercise6(randomExercise6);
 	};
 
+	const hi = () => alert('hi');
+
 	return (
 		<div>
 			<div className="flex flex-col items-center justify-center h-screen">
