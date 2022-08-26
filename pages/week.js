@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 
 function Week() {
+	// orginal code
+	/*
 	const [exercise0, setExercise0] = useState('Exercise');
 	const [exercise1, setExercise1] = useState('Exercise');
 	const [exercise2, setExercise2] = useState('Exercise');
@@ -9,6 +11,7 @@ function Week() {
 	const [exercise4, setExercise4] = useState('Exercise');
 	const [exercise5, setExercise5] = useState('Exercise');
 	const [exercise6, setExercise6] = useState('Exercise');
+	*/
 	const arrayExercises = [
 		'Stretch',
 		'Strength',
@@ -44,44 +47,38 @@ function Week() {
 	]);
 
 	const generate = () => {
-		// how do set the state for 7 of the states?
 		weeklyArray.length = 0;
 		for (let i = 0; i < 7; i++) {
 			const element =
 				arrayExercises[Math.floor(Math.random() * arrayExercises.length)];
 			weeklyArray.push(element);
+			setWeeklyArray([...weeklyArray, element]);
 		}
 
-		setExercise0(weeklyArray[0]);
-		setExercise1(weeklyArray[1]);
-		setExercise2(weeklyArray[2]);
-		setExercise3(weeklyArray[3]);
-		setExercise4(weeklyArray[4]);
-		setExercise5(weeklyArray[5]);
-		setExercise6(weeklyArray[6]);
-
 		// orginal code
-		// const randomNumber0 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomNumber1 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomNumber2 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomNumber3 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomNumber4 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomNumber5 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomNumber6 = Math.floor(Math.random() * arrayExercises.length);
-		// const randomExercise0 = arrayExercises[randomNumber0];
-		// const randomExercise1 = arrayExercises[randomNumber1];
-		// const randomExercise2 = arrayExercises[randomNumber2];
-		// const randomExercise3 = arrayExercises[randomNumber3];
-		// const randomExercise4 = arrayExercises[randomNumber4];
-		// const randomExercise5 = arrayExercises[randomNumber5];
-		// const randomExercise6 = arrayExercises[randomNumber6];
-		// setExercise0(randomExercise0);
-		// setExercise1(randomExercise1);
-		// setExercise2(randomExercise2);
-		// setExercise3(randomExercise3);
-		// setExercise4(randomExercise4);
-		// setExercise5(randomExercise5);
-		// setExercise6(randomExercise6);
+		/*
+		const randomNumber0 = Math.floor(Math.random() * arrayExercises.length);
+		const randomNumber1 = Math.floor(Math.random() * arrayExercises.length);
+		const randomNumber2 = Math.floor(Math.random() * arrayExercises.length);
+		const randomNumber3 = Math.floor(Math.random() * arrayExercises.length);
+		const randomNumber4 = Math.floor(Math.random() * arrayExercises.length);
+		const randomNumber5 = Math.floor(Math.random() * arrayExercises.length);
+		const randomNumber6 = Math.floor(Math.random() * arrayExercises.length);
+		const randomExercise0 = arrayExercises[randomNumber0];
+		const randomExercise1 = arrayExercises[randomNumber1];
+		const randomExercise2 = arrayExercises[randomNumber2];
+		const randomExercise3 = arrayExercises[randomNumber3];
+		const randomExercise4 = arrayExercises[randomNumber4];
+		const randomExercise5 = arrayExercises[randomNumber5];
+		const randomExercise6 = arrayExercises[randomNumber6];
+		setExercise0(randomExercise0);
+		setExercise1(randomExercise1);
+		setExercise2(randomExercise2);
+		setExercise3(randomExercise3);
+		setExercise4(randomExercise4);
+		setExercise5(randomExercise5);
+		setExercise6(randomExercise6);
+		*/
 	};
 
 	const hi = () => alert('hi');
@@ -125,7 +122,7 @@ function Week() {
 				>
 					Click Me
 				</button>
-				{/* <p>{weeklyArray}</p>  test */}
+				{/* <p>{weeklyArray}</p>  // test */}
 			</div>
 		</div>
 	);
