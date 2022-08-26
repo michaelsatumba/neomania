@@ -49,9 +49,14 @@ function Week() {
 	const generate = () => {
 		weeklyArray.length = 0;
 		for (let i = 0; i < 7; i++) {
+			// Gets random exercise from arrayExercises
 			const element =
 				arrayExercises[Math.floor(Math.random() * arrayExercises.length)];
+
+			// Adds random exercise to weeklyArray
 			weeklyArray.push(element);
+
+			// use spread operator to declare new array including the elements before + new element
 			setWeeklyArray([...weeklyArray, element]);
 		}
 
