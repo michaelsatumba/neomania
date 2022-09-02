@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 function Week() {
 	// orginal code
@@ -12,28 +14,39 @@ function Week() {
 	const [exercise5, setExercise5] = useState('Exercise');
 	const [exercise6, setExercise6] = useState('Exercise');
 	*/
-	const arrayExercises = [
+	const [input, setInput] = useState('');
+	const [arrayExercises, setArrayExercises] = useState([
 		'Stretch',
 		'Strength',
 		'Power Clean',
 		'Bodybuild',
 		'Calisthenics',
 		'Walk',
-		'Jog',
-		'Sprint',
-		'Rest',
-		'Foam Roll',
-		'Walking with Backpack',
-		'Swim',
-		'Jump Rope',
-		'Yoga',
-		'Bike',
-		'Basketball',
-		'Rollerskate',
-		'Hike',
-		'Bat',
-		'Dance',
-	];
+		// 'Jog',
+		// 'Sprint',
+		// 'Rest',
+		// 'Foam Roll',
+		// 'Walking with Backpack',
+		// 'Swim',
+		// 'Jump Rope',
+		// 'Yoga',
+		// 'Bike',
+		// 'Basketball',
+		// 'Rollerskate',
+		// 'Hike',
+		// 'Bat',
+		// 'Dance',
+	]);
+
+	const router = useRouter();
+
+	const {
+		query: { divStyle },
+	} = router;
+
+	const props = {
+		divStyle,
+	};
 
 	const [weeklyArray, setWeeklyArray] = useState([
 		'Exercise',
@@ -59,6 +72,7 @@ function Week() {
 			// use spread operator to declare new array including the elements before + new element
 			setWeeklyArray([...weeklyArray, element]);
 		}
+		console.log(props.divStyle);
 
 		// orginal code
 		/*
@@ -86,11 +100,41 @@ function Week() {
 		*/
 	};
 
-	const hi = () => alert('hi');
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setArrayExercises([...arrayExercises, input]);
+		setInput('');
+	};
+
+	const deleteExercise = (id) => {
+		// filters array, exercise index does not equal index
+		const arr = arrayExercises.filter(
+			(exercise, exerciseIndex) => exerciseIndex != id
+		); // deletes the index
+		setArrayExercises(arr);
+	};
 
 	return (
 		<div>
-			<div className="flex flex-col items-center justify-center h-screen">
+			<div className={props.divStyle}>
+				<div>
+					<p>Random Activity Generator</p>
+					<p className="text-xs">Click activity to delete from list</p>
+					{arrayExercises.map((n, id) => (
+						<p onClick={() => deleteExercise(id)} key={id}>
+							{n}
+						</p>
+					))}
+				</div>
+				<form className="flex space-x-2" onSubmit={handleSubmit}>
+					<input
+						type="text"
+						className="bg-gray-500 rounded-full my-2 px-4 py-2"
+						value={input}
+						placeholder={`Add Exercise`}
+						onChange={(e) => setInput(e.target.value)}
+					/>
+				</form>
 				<h1 className="mb-4">Do this week:</h1>
 				<div className="flex flex-col mb-4">
 					<div>
@@ -127,7 +171,11 @@ function Week() {
 				>
 					Click Me
 				</button>
-				{/* <p>{weeklyArray}</p>  // test */}
+				<Link href="/">
+					<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4">
+						Daily Schedule
+					</button>
+				</Link>
 			</div>
 		</div>
 	);
