@@ -18,20 +18,20 @@ function Week() {
 	const [arrayExercises, setArrayExercises] = useState([
 		'Stretch',
 		'Strength',
-		'Power Clean',
+		// 'Power Clean',
 		'Bodybuild',
 		'Calisthenics',
 		'Walk',
-		// 'Jog',
+		'Jog',
 		// 'Sprint',
 		// 'Rest',
 		// 'Foam Roll',
 		// 'Walking with Backpack',
 		// 'Swim',
 		// 'Jump Rope',
-		// 'Yoga',
-		// 'Bike',
-		// 'Basketball',
+		'Yoga',
+		'Bike',
+		'Basketball',
 		// 'Rollerskate',
 		// 'Hike',
 		// 'Bat',
@@ -41,11 +41,12 @@ function Week() {
 	const router = useRouter();
 
 	const {
-		query: { divStyle },
+		query: { divStyle, buttonStyle },
 	} = router;
 
 	const props = {
 		divStyle,
+		buttonStyle,
 	};
 
 	const [weeklyArray, setWeeklyArray] = useState([
@@ -165,16 +166,11 @@ function Week() {
 						<p>Sunday - {weeklyArray[6]} </p>
 					</div>
 				</div>
-				<button
-					onClick={generate}
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
-				>
+				<button onClick={generate} className={buttonStyle}>
 					Click Me
 				</button>
 				<Link href="/">
-					<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4">
-						Daily Schedule
-					</button>
+					<button className={buttonStyle}>Daily Schedule</button>
 				</Link>
 			</div>
 		</div>

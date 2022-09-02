@@ -9,27 +9,30 @@ export default function Home() {
 	const [arrayExercises, setArrayExercises] = useState([
 		'Stretch',
 		'Strength',
-		'Power Clean',
+		// 'Power Clean',
 		'Bodybuild',
 		'Calisthenics',
 		'Walk',
-		// 'Jog',
+		'Jog',
 		// 'Sprint',
 		// 'Rest',
 		// 'Foam Roll',
 		// 'Walking with Backpack',
-		// 'Swim',
+		'Swim',
 		// 'Jump Rope',
-		// 'Yoga',
-		// 'Bike',
-		// 'Basketball',
+		'Yoga',
+		'Bike',
+		'Basketball',
 		// 'Rollerskate',
 		// 'Hike',
 		// 'Bat',
 		// 'Dance',
 	]);
 	const [divStyle, setDivStyle] = useState(
-		`flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-blue-500`
+		`flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-blue-500 text-white`
+	);
+	const [buttonStyle, setButtonStyle] = useState(
+		`bg-[#F07DEA] hover:bg-[#A460ED] text-white font-bold py-2 px-4 rounded-full mt-4`
 	);
 
 	const generate = () => {
@@ -56,7 +59,7 @@ export default function Home() {
 		Router.push(
 			{
 				pathname: '/week',
-				query: { divStyle },
+				query: { divStyle, buttonStyle },
 			},
 			'/week'
 		);
@@ -97,17 +100,11 @@ export default function Home() {
 				>
 					{exercise}
 				</p>
-				<button
-					onClick={generate}
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
-				>
+				<button onClick={generate} className={buttonStyle}>
 					Click Me
 				</button>
 				{/* <Link href="/week"> */}
-				<button
-					onClick={weekPage}
-					className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-4"
-				>
+				<button onClick={weekPage} className={buttonStyle}>
 					Weekly Schedule
 				</button>
 				{/* </Link> */}
