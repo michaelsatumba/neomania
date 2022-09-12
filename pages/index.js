@@ -73,6 +73,15 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className={divStyle}>
+				<p className="text-center text-lg">
+					<a
+						href="https://podcastnotes.org/huberman-lab/episode-12-how-to-increase-motivation-drive-huberman-lab//"
+						target="_blank"
+					>
+						Novelty is the number one trigger of dopamine release - Andrew
+						Huberman
+					</a>
+				</p>
 				<div>
 					<p>Random Activity Generator</p>
 					<p className="text-xs">Click activity to delete from list</p>
@@ -108,6 +117,9 @@ export default function Home() {
 					Weekly Schedule
 				</button>
 				{/* </Link> */}
+				<Link href="/celebrate">
+					<button className={buttonStyle}>Celebrate?</button>
+				</Link>
 			</div>
 		</div>
 	);
