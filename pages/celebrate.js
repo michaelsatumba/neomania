@@ -27,6 +27,7 @@ function Celebrate() {
 					<a
 						href="https://podcastnotes.org/huberman-lab/episode-12-how-to-increase-motivation-drive-huberman-lab//"
 						target="_blank"
+						rel="noreferrer"
 					>
 						Novelty is the number one trigger of dopamine release - Andrew
 						Huberman
