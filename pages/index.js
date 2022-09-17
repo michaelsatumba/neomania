@@ -55,15 +55,15 @@ export default function Home() {
 		setArrayExercises(arr);
 	};
 
-	const weekPage = () => {
-		Router.push(
-			{
-				pathname: '/week',
-				query: { divStyle, buttonStyle },
-			},
-			'/week'
-		);
-	};
+	// const weekPage = () => {
+	// 	Router.push(
+	// 		{
+	// 			pathname: '/week',
+	// 			query: { divStyle, buttonStyle },
+	// 		},
+	// 		'/week'
+	// 	);
+	// };
 
 	return (
 		<div>
@@ -113,11 +113,9 @@ export default function Home() {
 				<button onClick={generate} className={buttonStyle}>
 					Click Me
 				</button>
-				{/* <Link href="/week"> */}
-				<button onClick={weekPage} className={buttonStyle}>
-					Weekly Schedule
-				</button>
-				{/* </Link> */}
+				<Link href="/week">
+					<button className={buttonStyle}>Weekly Schedule</button>
+				</Link>
 				<Link href="/celebrate">
 					<button className={buttonStyle}>Celebrate?</button>
 				</Link>

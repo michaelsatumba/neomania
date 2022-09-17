@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -38,16 +38,23 @@ function Week() {
 		// 'Dance',
 	]);
 
-	const router = useRouter();
+	const [divStyle, setDivStyle] = useState(
+		`flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-blue-500 text-white`
+	);
+	const [buttonStyle, setButtonStyle] = useState(
+		`bg-[#F07DEA] hover:bg-[#A460ED] text-white font-bold py-2 px-4 rounded-full mt-4`
+	);
 
-	const {
-		query: { divStyle, buttonStyle },
-	} = router;
+	// const router = useRouter();
 
-	const props = {
-		divStyle,
-		buttonStyle,
-	};
+	// const {
+	// 	query: { divStyle, buttonStyle },
+	// } = router;
+
+	// const props = {
+	// 	divStyle,
+	// 	buttonStyle,
+	// };
 
 	const [weeklyArray, setWeeklyArray] = useState([
 		'Exercise',
@@ -73,7 +80,6 @@ function Week() {
 			// use spread operator to declare new array including the elements before + new element
 			setWeeklyArray([...weeklyArray, element]);
 		}
-		console.log(props.divStyle);
 
 		// orginal code
 		/*
@@ -117,7 +123,7 @@ function Week() {
 
 	return (
 		<div>
-			<div className={props.divStyle}>
+			<div className={divStyle}>
 				<p className="text-center text-lg">
 					<a
 						href="https://podcastnotes.org/huberman-lab/episode-12-how-to-increase-motivation-drive-huberman-lab//"
