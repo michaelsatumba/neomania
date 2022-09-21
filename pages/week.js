@@ -121,6 +121,12 @@ function Week() {
 		setArrayExercises(arr);
 	};
 
+	const p = () => {
+		if (typeof window !== 'undefined') {
+			window.print();
+		}
+	};
+
 	return (
 		<div>
 			<div className={divStyle}>
@@ -185,6 +191,11 @@ function Week() {
 				<button onClick={generate} className={buttonStyle}>
 					Click Me
 				</button>
+
+				<button onClick={p} className={buttonStyle}>
+					Download
+				</button>
+
 				<Link href="/">
 					<button className={buttonStyle}>Home</button>
 				</Link>
