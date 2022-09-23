@@ -67,18 +67,24 @@ function Week() {
 		'Exercise',
 	]);
 
+	const [number, setNumber] = useState([3]);
+
 	const generate = () => {
-		weeklyArray.length = 0;
-		for (let i = 0; i < 7; i++) {
-			// Gets random exercise from arrayExercises
-			const element =
-				arrayExercises[Math.floor(Math.random() * arrayExercises.length)];
+		if (number > 0) {
+			setNumber(number - 1);
 
-			// Adds random exercise to weeklyArray
-			weeklyArray.push(element);
+			weeklyArray.length = 0;
+			for (let i = 0; i < 7; i++) {
+				// Gets random exercise from arrayExercises
+				const element =
+					arrayExercises[Math.floor(Math.random() * arrayExercises.length)];
 
-			// use spread operator to declare new array including the elements before + new element
-			setWeeklyArray([...weeklyArray, element]);
+				// Adds random exercise to weeklyArray
+				weeklyArray.push(element);
+
+				// use spread operator to declare new array including the elements before + new element
+				setWeeklyArray([...weeklyArray, element]);
+			}
 		}
 
 		// orginal code
@@ -188,9 +194,12 @@ function Week() {
 						<p>Sunday - {weeklyArray[6]} </p>
 					</div>
 				</div>
+
 				<button onClick={generate} className={buttonStyle}>
 					Click Me
 				</button>
+
+				<h1>You can only click {number}x</h1>
 
 				<button onClick={p} className={buttonStyle}>
 					Download
