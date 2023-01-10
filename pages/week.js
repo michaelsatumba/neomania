@@ -99,7 +99,7 @@ function Week() {
 			<div className={divStyle}>
 				<p className="text-xl">Random Activity Generator</p>
 				<p className="text-center text-xl">
-					&quot;Novelty is the number one trigger of dopamine release&ldquo;
+					&quot;Novelty is the number one trigger of dopamine release&ldquo;-
 					<a
 						href="https://podcastnotes.org/huberman-lab/episode-12-how-to-increase-motivation-drive-huberman-lab//"
 						target="_blank"
