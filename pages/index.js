@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
 import Link from 'next/link';
-import Router from 'next/router';
 
 export default function Home() {
 	const [exercise, setExercise] = useState('Exercise');
@@ -9,24 +8,14 @@ export default function Home() {
 	const [arrayExercises, setArrayExercises] = useState([
 		'Stretch',
 		'Strength',
-		// 'Power Clean',
 		'Bodybuild',
 		'Calisthenics',
 		'Walk',
 		'Jog',
-		// 'Sprint',
-		// 'Rest',
-		// 'Foam Roll',
-		// 'Walking with Backpack',
 		'Swim',
-		// 'Jump Rope',
 		'Yoga',
 		'Bike',
 		'Basketball',
-		// 'Rollerskate',
-		// 'Hike',
-		// 'Bat',
-		// 'Dance',
 	]);
 	const [divStyle, setDivStyle] = useState(
 		`flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 to-blue-500 text-white`
@@ -73,22 +62,27 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<div className={divStyle}>
-				<p className="text-center text-lg">
+				<p className="text-xl">Random Activity Generator</p>
+				<p className="text-center text-xl">
+					"Novelty is the number one trigger of dopamine release" -{' '}
 					<a
 						href="https://podcastnotes.org/huberman-lab/episode-12-how-to-increase-motivation-drive-huberman-lab//"
 						target="_blank"
 						rel="noreferrer"
+						className="text-pink-500 underline"
 					>
-						Novelty is the number one trigger of dopamine release - Andrew
-						Huberman
+						Andrew Huberman
 					</a>
 				</p>
 				<div>
-					<p>Random Activity Generator</p>
-					<p className="text-xs">Click activity to delete from list</p>
-					{arrayExercises.map((n, id) => (
-						<p onClick={() => deleteExercise(id)} key={id}>
-							{n}
+					<p className="text-base">Click activity to delete from list</p>
+					{arrayExercises.map((e, id) => (
+						<p
+							className="text-center"
+							onClick={() => deleteExercise(id)}
+							key={id}
+						>
+							{e}
 						</p>
 					))}
 				</div>

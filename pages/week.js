@@ -4,38 +4,17 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 function Week() {
-	// orginal code
-	/*
-	const [exercise0, setExercise0] = useState('Exercise');
-	const [exercise1, setExercise1] = useState('Exercise');
-	const [exercise2, setExercise2] = useState('Exercise');
-	const [exercise3, setExercise3] = useState('Exercise');
-	const [exercise4, setExercise4] = useState('Exercise');
-	const [exercise5, setExercise5] = useState('Exercise');
-	const [exercise6, setExercise6] = useState('Exercise');
-	*/
 	const [input, setInput] = useState('');
 	const [arrayExercises, setArrayExercises] = useState([
 		'Stretch',
 		'Strength',
-		// 'Power Clean',
 		'Bodybuild',
 		'Calisthenics',
 		'Walk',
 		'Jog',
-		// 'Sprint',
-		// 'Rest',
-		// 'Foam Roll',
-		// 'Walking with Backpack',
-		// 'Swim',
-		// 'Jump Rope',
 		'Yoga',
 		'Bike',
 		'Basketball',
-		// 'Rollerskate',
-		// 'Hike',
-		// 'Bat',
-		// 'Dance',
 	]);
 
 	const [divStyle, setDivStyle] = useState(
@@ -44,17 +23,6 @@ function Week() {
 	const [buttonStyle, setButtonStyle] = useState(
 		`bg-[#F07DEA] hover:bg-[#A460ED] text-white font-bold py-2 px-4 rounded-full mt-4`
 	);
-
-	// const router = useRouter();
-
-	// const {
-	// 	query: { divStyle, buttonStyle },
-	// } = router;
-
-	// const props = {
-	// 	divStyle,
-	// 	buttonStyle,
-	// };
 
 	const [weeklyArray, setWeeklyArray] = useState([
 		'Exercise',
@@ -67,11 +35,29 @@ function Week() {
 		'Exercise',
 	]);
 
-	const [number, setNumber] = useState([3]);
+	const [number, setNumber] = useState(3);
+
+	// const [number, setNumber] = useState(null);
+	// let number;
+
+	// if (typeof window !== 'undefined') {
+	// 	// localStorage is available, so you can use it here
+	// 	// localStorage.setItem('key', 'value');
+	// 	if (localStorage.getItem('number') !== null) {
+	// 		// get number from local storage
+	// 		number = localStorage.getItem('number');
+	// 		number = parseInt(number);
+	// 	} else {
+	// 		// use a default value for number
+	// 		number = 3;
+	// 	}
+	// }
 
 	const generate = () => {
 		if (number > 0) {
 			setNumber(number - 1);
+			// number -= 1;
+			localStorage.setItem('localNumber', number);
 
 			weeklyArray.length = 0;
 			for (let i = 0; i < 7; i++) {
@@ -86,31 +72,6 @@ function Week() {
 				setWeeklyArray([...weeklyArray, element]);
 			}
 		}
-
-		// orginal code
-		/*
-		const randomNumber0 = Math.floor(Math.random() * arrayExercises.length);
-		const randomNumber1 = Math.floor(Math.random() * arrayExercises.length);
-		const randomNumber2 = Math.floor(Math.random() * arrayExercises.length);
-		const randomNumber3 = Math.floor(Math.random() * arrayExercises.length);
-		const randomNumber4 = Math.floor(Math.random() * arrayExercises.length);
-		const randomNumber5 = Math.floor(Math.random() * arrayExercises.length);
-		const randomNumber6 = Math.floor(Math.random() * arrayExercises.length);
-		const randomExercise0 = arrayExercises[randomNumber0];
-		const randomExercise1 = arrayExercises[randomNumber1];
-		const randomExercise2 = arrayExercises[randomNumber2];
-		const randomExercise3 = arrayExercises[randomNumber3];
-		const randomExercise4 = arrayExercises[randomNumber4];
-		const randomExercise5 = arrayExercises[randomNumber5];
-		const randomExercise6 = arrayExercises[randomNumber6];
-		setExercise0(randomExercise0);
-		setExercise1(randomExercise1);
-		setExercise2(randomExercise2);
-		setExercise3(randomExercise3);
-		setExercise4(randomExercise4);
-		setExercise5(randomExercise5);
-		setExercise6(randomExercise6);
-		*/
 	};
 
 	const handleSubmit = (e) => {
@@ -136,21 +97,26 @@ function Week() {
 	return (
 		<div>
 			<div className={divStyle}>
-				<p className="text-center text-lg">
+				<p className="text-xl">Random Activity Generator</p>
+				<p className="text-center text-xl">
+					"Novelty is the number one trigger of dopamine release" -{' '}
 					<a
 						href="https://podcastnotes.org/huberman-lab/episode-12-how-to-increase-motivation-drive-huberman-lab//"
 						target="_blank"
 						rel="noreferrer"
+						className="text-pink-500 underline"
 					>
-						Novelty is the number one trigger of dopamine release - Andrew
-						Huberman
+						Andrew Huberman
 					</a>
 				</p>
 				<div>
-					<p>Random Activity Generator</p>
-					<p className="text-xs">Click activity to delete from list</p>
+					<p className="text-base">Click activity to delete from list</p>
 					{arrayExercises.map((n, id) => (
-						<p onClick={() => deleteExercise(id)} key={id}>
+						<p
+							className="text-center"
+							onClick={() => deleteExercise(id)}
+							key={id}
+						>
 							{n}
 						</p>
 					))}
