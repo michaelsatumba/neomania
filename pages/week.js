@@ -57,7 +57,7 @@ function Week() {
 		if (number > 0) {
 			setNumber(number - 1);
 			// number -= 1;
-			localStorage.setItem('localNumber', number);
+			// localStorage.setItem('localNumber', number);
 
 			weeklyArray.length = 0;
 			for (let i = 0; i < 7; i++) {
